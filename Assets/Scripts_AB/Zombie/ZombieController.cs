@@ -3,6 +3,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
+using System;
 
 
 public class ZombieController : MonoBehaviour
@@ -43,6 +45,18 @@ public class ZombieController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if the collision is with the player
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Call a method on the player to apply damage
+            CharacterController2D player = collision.gameObject.GetComponent<CharacterController2D>();
+            player.TakeDamage(damage);
+            Debug.Log("Damage taken");
+        }
+    }
+
     private void FollowPlayer()
     {
         // Move towards the player
@@ -65,7 +79,7 @@ public class ZombieController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        //health -= damage;
         if (health <= 0)
         {
             dead = true;
