@@ -137,8 +137,9 @@ public class CharacterController2D : MonoBehaviour
 			Destroy(hitInfo.gameObject);
 			
 		}
-		
+	
 
 	}
+	
 
 }
