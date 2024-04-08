@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkinnyZombie
       objectReference: {fileID: 0}
+    - target: {fileID: 4615079586712466958, guid: b16b2c756a6fbd4419b382ab46b034be, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
+      objectReference: {fileID: 0}
     - target: {fileID: 6050245653872251243, guid: b16b2c756a6fbd4419b382ab46b034be, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -295,6 +299,10 @@ PrefabInstance:
     - target: {fileID: 4615079586712466958, guid: 95a5f0b9e272e214faeac9774ae06163, type: 3}
       propertyPath: m_Name
       value: BigZombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615079586712466958, guid: 95a5f0b9e272e214faeac9774ae06163, type: 3}
+      propertyPath: m_TagString
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 8372454067299534136, guid: 95a5f0b9e272e214faeac9774ae06163, type: 3}
       propertyPath: m_LocalScale.x
