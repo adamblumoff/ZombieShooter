@@ -121,6 +121,7 @@ public class ZombieController : MonoBehaviour
     {
         if (dead)
         {
+            Die();
             DieAnimation();
             dead = false;
         }
