@@ -421,6 +421,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 7790248632087860962, guid: 26f0cdf783924e0438ebc1a640a35d3d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[5].m_Data
+      value: 
+      objectReference: {fileID: -1406022006, guid: 389be3483ef26ae4886e2b0a97fdaff1, type: 3}
+    - target: {fileID: 7790248632087860962, guid: 26f0cdf783924e0438ebc1a640a35d3d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[6].m_Data
+      value: 
+      objectReference: {fileID: -1406022006, guid: 389be3483ef26ae4886e2b0a97fdaff1, type: 3}
+    - target: {fileID: 7790248632087860962, guid: 26f0cdf783924e0438ebc1a640a35d3d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[5].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790248632087860962, guid: 26f0cdf783924e0438ebc1a640a35d3d, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[6].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790248632087860962, guid: 26f0cdf783924e0438ebc1a640a35d3d, type: 3}
+      propertyPath: m_Tiles.Array.data[620].second.m_TileSpriteIndex
+      value: 6
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
