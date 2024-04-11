@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
 	float verticalMove = 0f;
 	bool isHorizontal = false;
 	bool isDown = true;
-	bool attacking = false;
+	public bool attacking = false;
 	
 	// Update is called once per frame
 	void Update () {
@@ -83,7 +83,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	private void AttackingAnimation()
 	{
-		if(Input.GetButtonDown("Fire1"))
+		CharacterController2D character = GetComponent<CharacterController2D>();
+		if(Input.GetButtonDown("Fire1") && !character.isHit)
 		{
 			attacking = true;
 			animator.SetBool("isAttacking", true);
@@ -107,4 +108,16 @@ public class PlayerMovement : MonoBehaviour {
 		attacking = false;
 		animator.SetBool("isAttacking", false);
 	}
+	private IEnumerator UpgradeSpeedCoroutine()
+	{
+		float current_speed = this.runSpeed;
+		this.runSpeed*=1.5f;
+		yield return new WaitForSeconds(5f);
+		this.runSpeed = current_speed;
+	}
+	public void UpgradeSpeed()
+	{
+		StartCoroutine(UpgradeSpeedCoroutine());
+	}
+
 }

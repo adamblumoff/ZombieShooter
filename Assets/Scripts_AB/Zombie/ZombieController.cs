@@ -53,7 +53,6 @@ public class ZombieController : MonoBehaviour
             // Call a method on the player to apply damage
             CharacterController2D player = collision.gameObject.GetComponent<CharacterController2D>();
             player.TakeDamage(damage);
-            Debug.Log("Damage taken");
         }
     }
 
@@ -79,7 +78,8 @@ public class ZombieController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //health -= damage;
+        
+        health -= damage;
         if (health <= 0)
         {
             dead = true;
@@ -107,7 +107,7 @@ public class ZombieController : MonoBehaviour
         MovementAnimation();
     }
 
-
+    
 
 
 

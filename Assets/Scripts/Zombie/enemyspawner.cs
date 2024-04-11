@@ -1,33 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class enemyspawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject zombiePrefab;
-
+    private GameObject[] zombiePrefabs;
+    public float zombieInterval = 5f;
     [SerializeField]
-    private float zombieInterval = 3.5f;
+    private Transform[] spawners;
+    private int numZombies;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(spawnEnemy(zombieInterval, zombiePrefab));
+        StartCoroutine(spawnEnemy(zombieInterval, zombiePrefabs));
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     
 
-    private IEnumerator spawnEnemy(float interval, GameObject enemy)
+    private IEnumerator spawnEnemy(float interval, GameObject[] enemy)
     {
         yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f, 5), Random.Range(-6f, 6), 0), Quaternion.identity);
+        GameObject newEnemy = Instantiate(GetRandomPrefab(enemy), GetRandomSpawner(spawners).position, Quaternion.identity);
+        numZombies++;
+        StopSpawning(numZombies, 15);
         StartCoroutine(spawnEnemy(interval, enemy));
+    }
+    private Transform GetRandomSpawner(Transform[] spawners)
+    {
+        return spawners[Random.Range(0,spawners.Length)];
+    }
+     private GameObject GetRandomPrefab(GameObject[] prefabs)
+    {
+        return prefabs[Random.Range(0,prefabs.Length)];
+    }
+    private void StopSpawning(int numZombies, int maxZombies)
+    {
+        if(numZombies == maxZombies)
+        {
+            StopAllCoroutines();
+        }
     }
 }

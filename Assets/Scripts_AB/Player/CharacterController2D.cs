@@ -13,7 +13,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform GroundCheck;							// A position marking where to check if the player is grounded.
 	public float health = 100f;
 	public int damage = 50;
-	public GameObject prefab;
+
 
 
 
@@ -26,6 +26,7 @@ public class CharacterController2D : MonoBehaviour
 	private Animator playerAnimator;
 	private bool dead = false;
 	private bool isAttacking;
+	public bool isHit = false;
 	
 
 
@@ -46,7 +47,7 @@ public class CharacterController2D : MonoBehaviour
 			OnLandEvent = new UnityEvent();
 
 		playerAnimator = GetComponent<Animator>();
-		
+		this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 	}
 
 	void Update()
@@ -112,7 +113,7 @@ public class CharacterController2D : MonoBehaviour
 	public void TakeDamage (int damage)
 	{
 		health -= damage;
-
+		StartCoroutine(TakesHit());
 		if (health <= 0)
 		{
 			dead = true;
@@ -121,6 +122,7 @@ public class CharacterController2D : MonoBehaviour
 	private void DieAnimation()
 	{
 		Rigidbody2D.velocity = stop;
+		this.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f, 0.5f);
 		playerAnimator.SetBool("isDead", true);
 	}
 	public void PlayerDie()
@@ -128,18 +130,28 @@ public class CharacterController2D : MonoBehaviour
 		string currentSceneName = SceneManager.GetActiveScene().name;
 		SceneManager.LoadScene(currentSceneName);
 	}
-	void OnTriggerEnter2D (Collider2D hitInfo)
+	public void RestoreHealth()
 	{
-		if(hitInfo.gameObject.CompareTag("Zombie"))
+		this.health = 100f;
+	}
+	private IEnumerator TakesHit()
+	{
+		if(!dead)
 		{
-			ZombieController zombie = hitInfo.GetComponent<ZombieController>();
-			zombie.TakeDamage(damage);
-			Destroy(hitInfo.gameObject);
-			
+			isHit = true;
+			this.GetComponent<BoxCollider2D>().enabled = false;
+			for(int i = 0; i< 5; i++)
+			{
+				this.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f, 0.5f);
+				yield return new WaitForSeconds(.2f);
+				this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+				yield return new WaitForSeconds(.2f);
+			}
+			isHit = false;
+			this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+			this.GetComponent<BoxCollider2D>().enabled = true;
 		}
-	
 
 	}
-	
 
 }

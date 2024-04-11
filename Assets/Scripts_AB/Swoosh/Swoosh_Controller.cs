@@ -12,11 +12,11 @@ public class Down_Swoosh : MonoBehaviour
 
 	void Update()
 	{
-		/* timer += Time.deltaTime;
+		 timer += Time.deltaTime;
 		if(timer>1.5f)
 		{
 			Destroy(gameObject);
-		} */
+		} 
 	}
 	void OnTriggerEnter2D (Collider2D hitInfo)
 	{
