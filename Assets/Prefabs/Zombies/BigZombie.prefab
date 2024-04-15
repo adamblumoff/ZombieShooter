@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3464162114530216071}
   - component: {fileID: 7851582019648913432}
   - component: {fileID: 4408220995949096088}
+  - component: {fileID: -8967354671254563864}
   m_Layer: 0
   m_Name: BigZombie
   m_TagString: Untagged
@@ -239,3 +240,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-8967354671254563864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615079586712466958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb5764cd773ead4cb581b144bb521f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  damage: 100
