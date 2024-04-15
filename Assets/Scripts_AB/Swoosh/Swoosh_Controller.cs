@@ -7,10 +7,15 @@ public class Down_Swoosh : MonoBehaviour
 	public int damage = 100;
 	public Rigidbody2D rb;
 	private float timer;
+	private GameObject swoosh;
 
-	// Use this for initialization
 
-	void Update()
+    // Use this for initialization
+    private void Start()
+    {
+        swoosh = GetComponent<GameObject>();
+    }
+    void Update()
 	{
 		/* timer += Time.deltaTime;
 		if(timer>1.5f)
@@ -22,9 +27,12 @@ public class Down_Swoosh : MonoBehaviour
 	{
 		if(hitInfo.gameObject.CompareTag("Zombie"))
 		{
-			ZombieController zombie = hitInfo.GetComponent<ZombieController>();
+            Knockback knockback = hitInfo.GetComponent<Knockback>();
+            GeneralZombieController zombie = hitInfo.GetComponent<GeneralZombieController>();
 			zombie.TakeDamage(damage);
-			Destroy(gameObject);
+			knockback.HitBackwards(gameObject.transform.position);
+
+            Destroy(gameObject);
 		}
 
     }

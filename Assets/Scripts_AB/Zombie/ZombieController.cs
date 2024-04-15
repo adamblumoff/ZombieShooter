@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEditor.PackageManager;
 using System;
+using Unity.VisualScripting;
 
 
 public class ZombieController : MonoBehaviour
@@ -41,7 +42,7 @@ public class ZombieController : MonoBehaviour
         if (!dead)
         {
             FollowPlayer();
-            
+
         }
     }
 
@@ -79,7 +80,8 @@ public class ZombieController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //health -= damage;
+        animator.SetBool("IsHit", true);
+        health -= damage;
         if (health <= 0)
         {
             dead = true;
@@ -107,13 +109,17 @@ public class ZombieController : MonoBehaviour
         MovementAnimation();
     }
 
-
+    public void StopHitAnimation()
+    {
+        Debug.Log("Hit false");
+        animator.SetBool("IsHit", false);
+    }
 
 
 
     private void MovementAnimation()
     {
-       
+
         animator.SetBool("IsDown", isDown);
         animator.SetBool("IsHorizontal", isHorizontal);
     }
