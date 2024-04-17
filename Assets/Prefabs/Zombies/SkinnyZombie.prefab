@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6404217545977374410}
   - component: {fileID: -317105756763000057}
   - component: {fileID: -684022383337245457}
+  - component: {fileID: -7087338650682727864}
   m_Layer: 0
   m_Name: SkinnyZombie
   m_TagString: Untagged
@@ -209,3 +210,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 150
   damage: 100
+--- !u!114 &-7087338650682727864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615079586712466958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7c8a459a29e3f4787120bc30871af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 16
+  delay: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDone:
+    m_PersistentCalls:
+      m_Calls: []
