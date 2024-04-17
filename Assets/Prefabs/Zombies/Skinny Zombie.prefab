@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4408220995949096088}
   - component: {fileID: -8967354671254563864}
   m_Layer: 0
-  m_Name: BigZombie
+  m_Name: Skinny Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,9 +79,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: edfe6ba585ac63f4eb7a06734bfac9d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9fceb2634a2f1db408eac733ca056140, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.16, y: 0.16}
@@ -153,7 +153,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.1, y: 0.16}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -172,7 +172,7 @@ Animator:
   m_GameObject: {fileID: 4615079586712466958}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ddd30dc17a6f304448cb93e1f7d0d6e2, type: 2}
+  m_Controller: {fileID: 9100000, guid: d20d0aa07a8914448894dadf64f74994, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
