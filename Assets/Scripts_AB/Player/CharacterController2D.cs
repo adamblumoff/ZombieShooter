@@ -27,7 +27,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool dead = false;
 	private bool isAttacking;
 	public bool isHit = false;
-	
+
 
 
 	[Header("Events")]
@@ -153,5 +153,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 	}
+	
 
 }
+	

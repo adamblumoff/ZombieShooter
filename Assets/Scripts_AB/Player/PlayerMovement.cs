@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public CharacterController2D controller;
 	public Animator animator;
-
+	private SwooshSpawner swooshSpawner;
+	private CharacterController2D character;
 	public float runSpeed = 40f;
 
 	float horizontalMove = 0f;
@@ -15,10 +16,16 @@ public class PlayerMovement : MonoBehaviour {
 	bool isHorizontal = false;
 	bool isDown = true;
 	public bool attacking = false;
-	
+
+
 	// Update is called once per frame
+	void Start()
+	{
+		swooshSpawner = FindObjectOfType<SwooshSpawner>();
+		character = FindObjectOfType<CharacterController2D>();
+	}
 	void Update () {
-		if(!animator.GetBool("isDead") && !animator.GetBool("isAttacking"))
+		if(!animator.GetBool("isDead") && !animator.GetBool("isAttacking") || swooshSpawner.rapidFire)
 		{
 			Movement();
 			AttackingAnimation();
@@ -28,6 +35,7 @@ public class PlayerMovement : MonoBehaviour {
 			horizontalMove = 0f;
 			verticalMove = 0f;
 		}
+
 		
 	}
 
@@ -83,11 +91,11 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	private void AttackingAnimation()
 	{
-		CharacterController2D character = GetComponent<CharacterController2D>();
-		if(Input.GetButtonDown("Fire1") && !character.isHit)
+		if(Input.GetButtonDown("Fire1") && !character.isHit || swooshSpawner.rapidFire)
 		{
 			attacking = true;
 			animator.SetBool("isAttacking", true);
+			SetRapidFire();
 		}
 
 	}
@@ -108,16 +116,20 @@ public class PlayerMovement : MonoBehaviour {
 		attacking = false;
 		animator.SetBool("isAttacking", false);
 	}
-	private IEnumerator UpgradeSpeedCoroutine()
-	{
-		float current_speed = this.runSpeed;
-		this.runSpeed*=1.5f;
-		yield return new WaitForSeconds(5f);
-		this.runSpeed = current_speed;
-	}
+	
 	public void UpgradeSpeed()
 	{
-		StartCoroutine(UpgradeSpeedCoroutine());
+		this.runSpeed*=1.1f;
 	}
+	public void SetRapidFire()
+	{
+		if(swooshSpawner.rapidFire)
+			StartCoroutine(RapidFire());
+	}
+	private IEnumerator RapidFire()
+    {
+        yield return new WaitForSeconds(10f);
+        swooshSpawner.rapidFire = false;
+    }
 
 }

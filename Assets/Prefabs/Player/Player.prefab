@@ -257,6 +257,7 @@ MonoBehaviour:
   GroundCheck: {fileID: 4781114279067908856}
   health: 100
   damage: 50
+  isHit: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -287,6 +288,7 @@ MonoBehaviour:
   controller: {fileID: 2667125078126189149}
   animator: {fileID: 3968973066912596091}
   runSpeed: 25
+  attacking: 0
 --- !u!50 &1982517281756879977
 Rigidbody2D:
   serializedVersion: 4
@@ -371,10 +373,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e4b9e35c83d814bb23308f53226f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DownSwooshSpawner: {fileID: 6003948800379893261}
+  UpSpawner: {fileID: 0}
+  UpSwooshPrefab: {fileID: 4260906064128135257, guid: 5b0e66dfe08277c4b99f4bd3225ca537, type: 3}
+  DownSpawner: {fileID: 0}
   DownSwooshPrefab: {fileID: 4260906064128135257, guid: 501e1af1c6ad00441a7226232bfa8996, type: 3}
-  UpSwooshSpawner: {fileID: 1920615087982405023}
-  UpSwooshPrefab: {fileID: 4260906064128135257, guid: aa5c84d0a9b0f094e998e4466fb66976, type: 3}
-  SideSwooshSpawner: {fileID: 928021326298889444}
-  SideSwooshPrefab: {fileID: 4260906064128135257, guid: 6ffb8c4b25236bd4ebd8cc5c690af3a6, type: 3}
-  animator: {fileID: 3968973066912596091}
+  SideSpawner: {fileID: 0}
+  SideSwooshPrefab: {fileID: 4260906064128135257, guid: f666d7a2f6460f2458f61eba4e28a4c0, type: 3}
+  speed: 7

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Down_Swoosh : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Down_Swoosh : MonoBehaviour
 	public Rigidbody2D rb;
 	private float timer;
 	private GameObject swoosh;
+	public UnityEvent attackUpgrade;
 
 
     // Use this for initialization
@@ -31,7 +33,7 @@ public class Down_Swoosh : MonoBehaviour
             GeneralZombieController zombie = hitInfo.GetComponent<GeneralZombieController>();
 			zombie.TakeDamage(damage);
 			knockback.HitBackwards(gameObject.transform.position);
-
+			attackUpgrade.Invoke();
             Destroy(gameObject);
 		}
 

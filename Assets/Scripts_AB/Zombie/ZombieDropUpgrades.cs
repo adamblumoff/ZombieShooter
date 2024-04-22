@@ -10,11 +10,11 @@ public class ZombieDropUpgrades : MonoBehaviour
 
     public void RandomDrop()
     {
-        /* if(isDropping())
+        if(isDropping())
         {
-            GameObject upgrade = Instantiate(GetRandomUpgrade(upgrades), zombie.transform.position, Quaternion.identity);
-        } */
-        GameObject upgrade = Instantiate(GetRandomUpgrade(upgrades), transform.position, Quaternion.identity);
+            GameObject upgrade = Instantiate(GetRandomUpgrade(upgrades), transform.position, Quaternion.identity);
+        } 
+        
     }
     private GameObject GetRandomUpgrade(GameObject[] upgrades)
     {
@@ -23,9 +23,13 @@ public class ZombieDropUpgrades : MonoBehaviour
     private bool isDropping()
     {
         int randomNum = Random.Range(0,10);
-        if(randomNum < 9)
+        if(randomNum < 3)
+        {
             return true;
+        }
         else    
+        {
             return false;
+        }
     }
 }

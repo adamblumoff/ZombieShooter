@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class Upgrade : MonoBehaviour
 {
     // Start is called before the first frame update
-    public UnityEvent AttackUpgradeEvent;
     public GameObject text;
+    private SwooshSpawner swooshSpawner;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D collider;
     void Start()
@@ -16,6 +16,8 @@ public class Upgrade : MonoBehaviour
         text.SetActive(false);
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
+        swooshSpawner = FindObjectOfType<SwooshSpawner>();
+
     }
 
     // Update is called once per frame
@@ -39,10 +41,14 @@ public class Upgrade : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("RedUpgrade"))
         {
-            // Calls different actions
-            AttackUpgradeEvent.Invoke();
-            Debug.Log("test");
-            Destroy(gameObject);
+            swooshSpawner.IncreaseSpeed();
+            StartCoroutine(RedShowText());
+        }
+        else if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("GoldUpgrade"))
+        {
+            swooshSpawner.SetRapidFire();
+            swooshSpawner.SetRapidFireAnimation();
+            StartCoroutine(GoldShowText());
         }
     }
     private IEnumerator GreenShowText()
@@ -50,7 +56,7 @@ public class Upgrade : MonoBehaviour
         text.SetActive(true);
         spriteRenderer.enabled = false;
         collider.enabled = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(10f);
         text.SetActive(false);
         Destroy(gameObject);
 
@@ -65,6 +71,26 @@ public class Upgrade : MonoBehaviour
         Destroy(gameObject);
 
     }
+    private IEnumerator RedShowText()
+    {
+        text.SetActive(true);
+        spriteRenderer.enabled = false;
+        collider.enabled = false;
+        yield return new WaitForSeconds(5f);;
+        text.SetActive(false);
+        Destroy(gameObject);
+
+    }
+    private IEnumerator GoldShowText()
+    {
+        text.SetActive(true);
+        spriteRenderer.enabled = false;
+        collider.enabled = false;
+        yield return new WaitForSeconds(10f);;
+        text.SetActive(false);
+        Destroy(gameObject);
+
+    }
     IEnumerator DestroyUpgrade()
     {
         yield return new WaitForSeconds(7f);
@@ -72,4 +98,6 @@ public class Upgrade : MonoBehaviour
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
+
+
 }

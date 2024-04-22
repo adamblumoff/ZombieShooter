@@ -11,16 +11,16 @@ public class SwooshSpawner : MonoBehaviour
     public Transform SideSpawner;
     public GameObject SideSwooshPrefab;
     private Animator animator;
+    private PlayerMovement playerMovement;
     public float speed = 5f;
-    public float invertedBulletRate;
-    private int count; 
+    public bool rapidFire = false;
     
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
-
     // Update is called once per frame
     public void Swoosh (Transform spawner, GameObject prefab)
 	{
@@ -72,4 +72,38 @@ public class SwooshSpawner : MonoBehaviour
             
         }
     }
+    public void IncreaseSpeed()
+    {
+        speed*=1.1f;
+    }
+    private IEnumerator RapidFire()
+    {
+        yield return new WaitForSeconds(10f);
+        rapidFire = false;
+    }
+        
+    public void SetRapidFire()
+    {
+        rapidFire = !rapidFire;
+    }
+    private IEnumerator RapidFireAnimation()
+	{
+		this.GetComponent<BoxCollider2D>().enabled = false;
+		for(int i = 0; i< 25; i++)
+		{
+			this.GetComponent<SpriteRenderer>().color = new Color(255f, 215f, 0f, 0.75f);
+			yield return new WaitForSeconds(.2f);
+			this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);
+			yield return new WaitForSeconds(.2f);
+		}
+		this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+		this.GetComponent<BoxCollider2D>().enabled = true;
+	}
+	public void SetRapidFireAnimation()
+	{
+		if(rapidFire)
+		{
+			StartCoroutine(RapidFireAnimation());
+		}
+	}
 }

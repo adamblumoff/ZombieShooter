@@ -8,6 +8,8 @@ TagManager:
   - Upgrade
   - BlueUpgrade
   - GreenUpgrade
+  - RedUpgrade
+  - GoldUpgrade
   layers:
   - Default
   - TransparentFX

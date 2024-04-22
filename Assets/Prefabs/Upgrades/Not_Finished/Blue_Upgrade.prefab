@@ -121,10 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01446dbce72a02e40a3ecc7d64af139b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackUpgradeEvent:
-    m_PersistentCalls:
-      m_Calls: []
   text: {fileID: 7239100038716412461}
+  swooshSpawner: {fileID: 0}
 --- !u!61 &5602451548354613789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -337,7 +335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2X Speed Increase!
+  m_text: 10% Speed Increase!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
