@@ -7,17 +7,14 @@ public class ZombieDropUpgrades : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject[] upgrades;
-    private GameObject zombie;
-    void Start()
-    {
-        zombie = GetComponent<GameObject>();
-    }
+
     public void RandomDrop()
     {
-        if(isDropping())
+        /* if(isDropping())
         {
             GameObject upgrade = Instantiate(GetRandomUpgrade(upgrades), zombie.transform.position, Quaternion.identity);
-        }
+        } */
+        GameObject upgrade = Instantiate(GetRandomUpgrade(upgrades), transform.position, Quaternion.identity);
     }
     private GameObject GetRandomUpgrade(GameObject[] upgrades)
     {
@@ -26,7 +23,7 @@ public class ZombieDropUpgrades : MonoBehaviour
     private bool isDropping()
     {
         int randomNum = Random.Range(0,10);
-        if(randomNum < 2)
+        if(randomNum < 9)
             return true;
         else    
             return false;

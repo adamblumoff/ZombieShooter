@@ -6,7 +6,7 @@ using UnityEngine;
 public class enemyspawner2 : MonoBehaviour
 {
     [SerializeField] private GameObject[] zombiePrefabs;
-    public float zombieInterval = 5f;
+    public float zombieInterval = 2f;
     [SerializeField] private Transform[] spawners;
     private int numZombies;
     [HideInInspector] public int maxZombies = 15;

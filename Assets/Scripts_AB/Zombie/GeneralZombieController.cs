@@ -5,6 +5,7 @@ public class GeneralZombieController : MonoBehaviour
     public float health;
     public int damage = 100;
     private MovementAndAnimation movementAndAnimation;
+    private ZombieDropUpgrades zombieDropUpgrades;
     private Transform targetTransform; // Can be set to player's transform or another target
     private bool dead = false;
 
@@ -12,6 +13,7 @@ public class GeneralZombieController : MonoBehaviour
     {
         movementAndAnimation = GetComponent<MovementAndAnimation>();
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        zombieDropUpgrades = GetComponent<ZombieDropUpgrades>();
     }
 
     void Update()
@@ -53,6 +55,7 @@ public class GeneralZombieController : MonoBehaviour
     void EndDeath()
     {
         Debug.Log("destroy");
+        zombieDropUpgrades.RandomDrop();
         Destroy(gameObject);
     }
 }
