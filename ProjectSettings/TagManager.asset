@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Zombie
   - Upgrade
+  - BlueUpgrade
+  - GreenUpgrade
   layers:
   - Default
   - TransparentFX

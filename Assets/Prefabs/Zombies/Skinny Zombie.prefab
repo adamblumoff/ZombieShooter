@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7851582019648913432}
   - component: {fileID: 4408220995949096088}
   - component: {fileID: -8967354671254563864}
+  - component: {fileID: -5252332206230278916}
   m_Layer: 0
   m_Name: Skinny Zombie
   m_TagString: Zombie
@@ -254,3 +255,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   damage: 100
+--- !u!114 &-5252332206230278916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615079586712466958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa23906ef9b1b6448a6849e8af5dae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrades:
+  - {fileID: 424172731202423525, guid: a23ce1d2997b3d94ea2b1577ad4018e1, type: 3}
+  - {fileID: 424172731202423525, guid: 5dc309126efe6b746ada12ac66757b9f, type: 3}

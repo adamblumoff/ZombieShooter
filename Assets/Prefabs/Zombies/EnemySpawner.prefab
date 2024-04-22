@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4405269248531484730}
-  - component: {fileID: 8764363806429604336}
+  - component: {fileID: 1937711662628919388}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Transform:
   - {fileID: 4180191822375053631}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8764363806429604336
+--- !u!114 &1937711662628919388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,18 +107,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3804104011058698764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e85aa25aaf8462bb069dff0beb7080, type: 3}
+  m_Script: {fileID: 11500000, guid: 00cb5a43db4344c898405444c5ff08c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefabs:
   - {fileID: 4615079586712466958, guid: 95a5f0b9e272e214faeac9774ae06163, type: 3}
-  - {fileID: 4615079586712466958, guid: b16b2c756a6fbd4419b382ab46b034be, type: 3}
+  - {fileID: 4615079586712466958, guid: 84d4752ea64c0d04390ed03f2487f261, type: 3}
   zombieInterval: 5
   spawners:
   - {fileID: 6578356697913470816}
   - {fileID: 2196553890870365216}
   - {fileID: 5504710459129727199}
   - {fileID: 4180191822375053631}
+  maxZombies: 15
 --- !u!1 &7489081592738431638
 GameObject:
   m_ObjectHideFlags: 0

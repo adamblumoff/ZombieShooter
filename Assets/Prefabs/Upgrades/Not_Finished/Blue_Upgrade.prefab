@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6462723860303587249}
   - component: {fileID: 718969723960315122}
   m_Layer: 0
-  m_Name: Green_Upgrade
-  m_TagString: GreenUpgrade
+  m_Name: Blue_Upgrade
+  m_TagString: BlueUpgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 2015915175, guid: f207b47e13537f14dbf919935a5103c9, type: 3}
+  m_Sprite: {fileID: -1126581089, guid: bf3cb2c3b001e4748b9c34a6a77a56ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 424172731202423525}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8d5aeaaa78088d42b15ca5dcfee2515, type: 2}
+  m_Controller: {fileID: 9100000, guid: 784a1c2b3d7c5344cbcc5c83598a7139, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -260,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -49}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5846119940072014639
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health Restored!
+  m_text: 2X Speed Increase!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -300,8 +300,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280010037
-  m_fontColor: {r: 0.20773953, g: 0.7735849, b: 0.105820596, a: 1}
+    rgba: 4293776202
+  m_fontColor: {r: 0.28929338, g: 0.82783306, b: 0.9292453, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
