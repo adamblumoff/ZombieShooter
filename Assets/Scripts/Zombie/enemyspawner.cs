@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class enemyspawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] zombiePrefabs;
+    [SerializeField] private GameObject[] zombiePrefabs;
     public float zombieInterval = 5f;
-    [SerializeField]
-    private Transform[] spawners;
+    [SerializeField] private Transform[] spawners;
     private int numZombies;
+    [HideInInspector] public int maxZombies = 15;
 
 
     // Start is called before the first frame update
@@ -19,17 +18,13 @@ public class enemyspawner : MonoBehaviour
         StartCoroutine(spawnEnemy(zombieInterval, zombiePrefabs));
     }
 
-    // Update is called once per frame
-
-
-    
 
     private IEnumerator spawnEnemy(float interval, GameObject[] enemy)
     {
         yield return new WaitForSeconds(interval);
         GameObject newEnemy = Instantiate(GetRandomPrefab(enemy), GetRandomSpawner(spawners).position, Quaternion.identity);
         numZombies++;
-        StopSpawning(numZombies, 15);
+        StopSpawning(numZombies, maxZombies);  
         StartCoroutine(spawnEnemy(interval, enemy));
     }
     private Transform GetRandomSpawner(Transform[] spawners)

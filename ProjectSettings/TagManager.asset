@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Zombie
-  - Upgrade
+  - BlueUpgrade
+  - RedUpgrade
+  - GreenUpgrade
   layers:
   - Default
   - TransparentFX

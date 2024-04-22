@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6988190963769768627}
   - component: {fileID: -4014952140669939793}
   - component: {fileID: -3464162114530216071}
+  - component: {fileID: 7209151669001741764}
   m_Layer: 0
   m_Name: BigZombie
   m_TagString: Zombie
@@ -196,3 +197,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7209151669001741764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615079586712466958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa23906ef9b1b6448a6849e8af5dae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrades:
+  - {fileID: 424172731202423525, guid: 28119def73af03c45b545fb38b56a77f, type: 3}
+  - {fileID: 424172731202423525, guid: a23ce1d2997b3d94ea2b1577ad4018e1, type: 3}

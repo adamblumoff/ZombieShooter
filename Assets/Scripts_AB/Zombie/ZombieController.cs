@@ -25,6 +25,7 @@ public class ZombieController : MonoBehaviour
 
     bool isHorizontal = false;
     bool isDown = true;
+    private ZombieDropUpgrades zombie;
 
 
 
@@ -33,6 +34,7 @@ public class ZombieController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Find the player by tag
+        zombie = GetComponent<ZombieDropUpgrades>();
     }
 
     void Update()
@@ -121,6 +123,7 @@ public class ZombieController : MonoBehaviour
     {
         if (dead)
         {
+            zombie.RandomDrop();
             Die();
             DieAnimation();
             dead = false;

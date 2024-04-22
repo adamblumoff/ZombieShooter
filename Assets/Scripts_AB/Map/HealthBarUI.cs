@@ -7,8 +7,8 @@ public class HealthBarUI : MonoBehaviour
     [SerializeField] //so can set from the inspector
     private UnityEngine.UI.Image _healthBarForegroundImage;
 
-    public void UpdateHealthBar(HealthController healthController)
+    public void UpdateHealthBar(GameController healthController)
     {
-        //_healthBarForegroundImage.fillAmount = healthController.RemainingHealthPercentage;
+        _healthBarForegroundImage.fillAmount = healthController.RemainingHealthPercentage;
     }
 }

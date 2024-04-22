@@ -11,9 +11,8 @@ public class CharacterController2D : MonoBehaviour
 
 	[SerializeField] private LayerMask WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform GroundCheck;							// A position marking where to check if the player is grounded.
-	public float health = 100f;
-	public int damage = 50;
-
+	public int health = 100;
+	
 
 
 
@@ -30,43 +29,19 @@ public class CharacterController2D : MonoBehaviour
 	
 
 
-	[Header("Events")]
-	[Space]
 
-	public UnityEvent OnLandEvent;
-
-	[System.Serializable]
-	public class BoolEvent : UnityEvent<bool> { }
 
 
 	void Awake()
 	{
 		Rigidbody2D = GetComponent<Rigidbody2D>();
-
-		if (OnLandEvent == null)
-			OnLandEvent = new UnityEvent();
-
 		playerAnimator = GetComponent<Animator>();
 		this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+		this.health = 100;
 	}
 
 	void Update()
 	{
-		bool wasGrounded = Grounded;
-		Grounded = false;
-
-		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(GroundCheck.position, k_GroundedRadius, WhatIsGround);
-		for (int i = 0; i < colliders.Length; i++)
-		{
-			if (colliders[i].gameObject != gameObject)
-			{
-				Grounded = true;
-				if (!wasGrounded)
-					OnLandEvent.Invoke();
-			}
-		}
 		
 		if(dead){
 			DieAnimation();
@@ -132,7 +107,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 	public void RestoreHealth()
 	{
-		this.health = 100f;
+		health = 100;
 	}
 	private IEnumerator TakesHit()
 	{

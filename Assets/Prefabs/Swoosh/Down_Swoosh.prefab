@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5758954295565505367}
   - component: {fileID: 6825751649653515416}
   - component: {fileID: 1299972480403700200}
-  - component: {fileID: 953460096414837652}
+  - component: {fileID: -3440855937964101280}
   m_Layer: 0
   m_Name: Down_Swoosh
   m_TagString: Untagged
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &953460096414837652
+--- !u!114 &-3440855937964101280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,5 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb01381c4301d947a0a6d0fec61a9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 50
   rb: {fileID: 1299972480403700200}

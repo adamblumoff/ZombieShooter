@@ -113,7 +113,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2020574303, guid: 1ea5636210a2e7c4c9987b867db0eef4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -164,8 +164,8 @@ MonoBehaviour:
   DownSwooshPrefab: {fileID: 4260906064128135257, guid: 501e1af1c6ad00441a7226232bfa8996, type: 3}
   SideSpawner: {fileID: 2937696568378332627}
   SideSwooshPrefab: {fileID: 4260906064128135257, guid: f666d7a2f6460f2458f61eba4e28a4c0, type: 3}
-  speed: 5
-  invertedBulletRate: 20
+  speed: 7
+  invertedBulletRate: 15
 --- !u!114 &9056907676760539091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,8 +183,7 @@ MonoBehaviour:
     m_Bits: 55
   GroundCheck: {fileID: 3285397044266966607}
   health: 100
-  damage: 50
-  prefab: {fileID: 0}
+  isHit: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -214,8 +213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9056907676760539091}
   animator: {fileID: 3084000149596104561}
-  swooshAnimator: {fileID: 0}
   runSpeed: 25
+  attacking: 0
 --- !u!50 &7187457564747677264
 Rigidbody2D:
   serializedVersion: 4
