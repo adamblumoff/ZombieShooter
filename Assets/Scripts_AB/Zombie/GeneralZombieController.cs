@@ -24,7 +24,7 @@ public class GeneralZombieController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
