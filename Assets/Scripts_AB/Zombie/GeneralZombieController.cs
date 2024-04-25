@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 public class GeneralZombieController : MonoBehaviour
@@ -15,7 +14,6 @@ public class GeneralZombieController : MonoBehaviour
         movementAndAnimation = GetComponent<MovementAndAnimation>();
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         zombieDropUpgrades = GetComponent<ZombieDropUpgrades>();
-       
     }
 
     void Update()
@@ -58,7 +56,6 @@ public class GeneralZombieController : MonoBehaviour
     {
         Debug.Log("destroy");
         zombieDropUpgrades.RandomDrop();
-        KillCounter.AddKill();
         Destroy(gameObject);
     }
 }
