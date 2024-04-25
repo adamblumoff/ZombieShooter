@@ -13,7 +13,7 @@ public class HealthBarUI : MonoBehaviour
         if (player != null)
         {
             // Subscribe to the OnHealthChanged event
-            player.OnHealthChanged.AddListener(UpdateHealthBar);
+            //player.OnHealthChanged.AddListener(UpdateHealthBar);
         }
     }
 
