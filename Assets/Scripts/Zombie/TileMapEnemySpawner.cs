@@ -13,10 +13,9 @@ public class TileMapEnemySpawner : MonoBehaviour
     public float spawnRate = 5.0f;
     public float spawnAcceleration = 0.9f;
     public int zombiesPerRound = 10;
-    public GameObject text;  // Round over message
+    public GameObject RoundOver;  // Round over message
     public GameObject roundNumberGameObject;  // Add this for round number display
 
-    public Canvas canvasTest;
 
     private List<Vector3Int> availableTiles = new List<Vector3Int>();
     private int roundNumber = 1;
@@ -35,7 +34,7 @@ public class TileMapEnemySpawner : MonoBehaviour
             Debug.LogError("Text component is not attached to roundNumberGameObject.");
         }
         UpdateRoundNumberUI();  // Update the UI to show the first round number
-        text.SetActive(false);
+        RoundOver.SetActive(false);
         StartCoroutine(RunRound());
     }
 
@@ -86,10 +85,10 @@ public class TileMapEnemySpawner : MonoBehaviour
         }
 
         // Round over logic
-        text.SetActive(true);
+        RoundOver.SetActive(true);
         UpdateRoundNumberUI(); // Update the round number just before showing the round over message
         yield return new WaitForSeconds(3); // Display the round over message for 3 seconds
-        text.SetActive(false);
+        RoundOver.SetActive(false);
         barrelSpawnerInstance.RespawnBarrels();
 
         // Prepare for the next round
