@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2929958680932493716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.1, y: -25.1, z: 0}
+  m_LocalPosition: {x: -31.2, y: -23.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 3596864438395305862}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.8, y: -25.4, z: 0}
+  m_LocalPosition: {x: 6.9, y: -23.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefabs:
-  - {fileID: 4615079586712466958, guid: 95a5f0b9e272e214faeac9774ae06163, type: 3}
-  - {fileID: 4615079586712466958, guid: 84d4752ea64c0d04390ed03f2487f261, type: 3}
+  - {fileID: 4615079586712466958, guid: 2b997476696451148a6b4ac3906ed907, type: 3}
+  - {fileID: 4615079586712466958, guid: 19f37864604eb44459bbbff94d9d83ab, type: 3}
   zombieInterval: 5
   spawners:
   - {fileID: 6578356697913470816}
@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 7489081592738431638}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.38, y: -5.97, z: 0}
+  m_LocalPosition: {x: 5, y: -1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -176,7 +176,7 @@ Transform:
   m_GameObject: {fileID: 7801486430880548129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.84, y: -5.38, z: 0}
+  m_LocalPosition: {x: -31.5, y: -1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,14 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthBarUI : MonoBehaviour
 {
-    [SerializeField] //so can set from the inspector
+    [SerializeField]
     private UnityEngine.UI.Image _healthBarForegroundImage;
+    private CharacterController2D player;
 
-    public void UpdateHealthBar(HealthController healthController)
+    private void Start()
     {
-        //_healthBarForegroundImage.fillAmount = healthController.RemainingHealthPercentage;
+        // Find the player in the scene and reference it
+        player = FindObjectOfType<CharacterController2D>();
+        if (player != null)
+        {
+            // Subscribe to the OnHealthChanged event
+            //player.OnHealthChanged.AddListener(UpdateHealthBar);
+        }
+    }
+
+    public void UpdateHealthBar(float healthPercentage)
+    {
+        _healthBarForegroundImage.fillAmount = healthPercentage;
     }
 }
