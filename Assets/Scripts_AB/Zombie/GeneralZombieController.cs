@@ -56,6 +56,7 @@ public class GeneralZombieController : MonoBehaviour
     {
         Debug.Log("destroy");
         zombieDropUpgrades.RandomDrop();
+        KillCounter.AddKill();
         Destroy(gameObject);
     }
 }
