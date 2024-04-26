@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHit: 0
   explosionPrefab: {fileID: 3800555928399640588, guid: d8e604046eb029c4fbdacf90ad40e2f1, type: 3}
+  explosionClip: {fileID: 8300000, guid: da3a1512b7cb6ac46a7242747a8e103e, type: 3}
 --- !u!95 &8392417667306624507
 Animator:
   serializedVersion: 5

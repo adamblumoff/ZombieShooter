@@ -255,6 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   damage: 25
+  zombieGrunt: {fileID: 8300000, guid: c3614da4fe7595540b403b1e3ec790d1, type: 3}
+  zombieHurt: {fileID: 8300000, guid: cf02a682540119f46aa8a85b984986ed, type: 3}
 --- !u!114 &-5252332206230278916
 MonoBehaviour:
   m_ObjectHideFlags: 0
