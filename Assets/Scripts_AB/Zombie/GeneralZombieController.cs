@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GeneralZombieController : MonoBehaviour
@@ -8,12 +9,18 @@ public class GeneralZombieController : MonoBehaviour
     private ZombieDropUpgrades zombieDropUpgrades;
     private Transform targetTransform; // Can be set to player's transform or another target
     private bool dead = false;
+    private int gruntDelay = 3;
+
+    public AudioClip zombieGrunt;
+    public AudioClip zombieHurt;
 
     void Start()
     {
         movementAndAnimation = GetComponent<MovementAndAnimation>();
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         zombieDropUpgrades = GetComponent<ZombieDropUpgrades>();
+
+        StartCoroutine(ZombieGrunt(zombieGrunt));
     }
 
     void Update()
@@ -38,6 +45,7 @@ public class GeneralZombieController : MonoBehaviour
     {
         movementAndAnimation.TriggerHitAnimation();
         health -= damage;
+        SoundManager.PlayZombieHurt(zombieHurt);
         if (health <= 0)
         {
             dead = true;
@@ -58,5 +66,15 @@ public class GeneralZombieController : MonoBehaviour
         zombieDropUpgrades.RandomDrop();
         KillCounter.AddKill();
         Destroy(gameObject);
+    }
+
+
+    IEnumerator ZombieGrunt(AudioClip zombieGruntClip)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(gruntDelay);
+            SoundManager.PlayZombieGrunt(zombieGruntClip);
+        }
     }
 }

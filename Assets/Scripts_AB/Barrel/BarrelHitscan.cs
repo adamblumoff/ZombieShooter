@@ -7,6 +7,7 @@ public class Barrel_Hitscan : MonoBehaviour
     private Animator animator;
     public bool isHit;
     public GameObject explosionPrefab; // Drag your Explosion Prefab here through the Inspector
+    public AudioClip explosionClip;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class Barrel_Hitscan : MonoBehaviour
     {
         if (explosionPrefab != null)
         {
+            SoundManager.PlayBarrelExplosion(explosionClip);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
         Destroy(gameObject); // Destroys the barrel GameObject
