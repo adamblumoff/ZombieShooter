@@ -257,6 +257,7 @@ MonoBehaviour:
   damage: 25
   zombieGrunt: {fileID: 8300000, guid: c3614da4fe7595540b403b1e3ec790d1, type: 3}
   zombieHurt: {fileID: 8300000, guid: cf02a682540119f46aa8a85b984986ed, type: 3}
+  zombie: {fileID: 0}
 --- !u!114 &-5252332206230278916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +272,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades:
   - {fileID: 424172731202423525, guid: a23ce1d2997b3d94ea2b1577ad4018e1, type: 3}
+  - {fileID: 424172731202423525, guid: a23ce1d2997b3d94ea2b1577ad4018e1, type: 3}
+  - {fileID: 424172731202423525, guid: 5dc309126efe6b746ada12ac66757b9f, type: 3}
   - {fileID: 424172731202423525, guid: 5dc309126efe6b746ada12ac66757b9f, type: 3}
   - {fileID: 424172731202423525, guid: 9c2f5fce577d9b44ea9395a8ceaebe9a, type: 3}
+  - {fileID: 424172731202423525, guid: 8cf225ba09333aa49be01c42cccee827, type: 3}
   - {fileID: 424172731202423525, guid: 8cf225ba09333aa49be01c42cccee827, type: 3}

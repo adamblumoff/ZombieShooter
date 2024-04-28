@@ -10,8 +10,11 @@ public class CharacterController2D : MonoBehaviour
 {
 
 	[SerializeField] private LayerMask WhatIsGround;							// A mask determining what is ground to the character
-	[SerializeField] private Transform GroundCheck;							// A position marking where to check if the player is grounded.
-	public float health = 100f;
+	[SerializeField] private Transform GroundCheck;                             // A position marking where to check if the player is grounded.
+
+    [SerializeField] public GameObject GameOverPanel; //Canvas for game over menu
+
+    public float health = 100f;
 	public int damage = 50;
 	public AudioClip hitClip;
 	public AudioClip dieClip;
@@ -133,8 +136,9 @@ public class CharacterController2D : MonoBehaviour
 	}
 	public void PlayerDie()
 	{
-		SceneManager.LoadScene("Menu");
-	}
+        Time.timeScale = 0f;
+        GameOverPanel.SetActive(true);
+    }
 	public void RestoreHealth()
 	{
 		this.health = 100f;

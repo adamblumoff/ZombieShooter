@@ -183,6 +183,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   GroundCheck: {fileID: 3285397044266966607}
+  GameOverPanel: {fileID: 1328014952715451926, guid: 1c0382a9f307f5d43817e145ad15b70d, type: 3}
   health: 100
   damage: 50
   hitClip: {fileID: 8300000, guid: e789caf461d44944fa88f86b465265af, type: 3}
