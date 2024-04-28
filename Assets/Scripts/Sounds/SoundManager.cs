@@ -47,7 +47,7 @@ public class SoundManager : MonoBehaviour
     {
         if (explosionClip != null)
         {
-            audioSource.PlayOneShot(explosionClip);
+            audioSource.PlayOneShot(explosionClip, .8f);
         }
         else
         {
