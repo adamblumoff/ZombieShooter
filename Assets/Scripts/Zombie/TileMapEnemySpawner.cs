@@ -7,34 +7,33 @@ using UnityEngine.UI;
 
 public class TileMapEnemySpawner : MonoBehaviour
 {
-    public Tilemap spawnMap;
-    public List<GameObject> zombies;
-    public float initialSpawnDelay = 2.0f;
-    public float spawnRate = 2f;
-    public float spawnAcceleration = 0.9f;
-    public int zombiesPerRound = 10;
-    public GameObject RoundOverGameObject;  // Round over message
+    public Tilemap spawnMap;                  // Zombie spawning tilemap layer
+    public List<GameObject> zombies;          // Zombies to spawn
+    public float initialSpawnDelay = 2.0f;    // Spawn delay at round begin
+    public float spawnRate = 2f;              // Rate of spawning zombies
+    public float spawnAcceleration = 0.9f;    // Decrement of spawn interval per round
+    public int zombiesPerRound = 10;          
+    public GameObject RoundOverGameObject;    // Round over message
     public GameObject roundNumberGameObject;  // Add this for round number display
 
-    private List<Vector3Int> availableTiles = new List<Vector3Int>();
+    private List<Vector3Int> availableTiles = new List<Vector3Int>(); // List of tiles to spawn
     private int roundNumber = 1;
     private TextMeshProUGUI roundNumberText;
 
-    private int kills;
-    private int totalKillsNeeded = 10;
-    public BarrelSpawner barrelSpawnerInstance;
+    private int kills;                              // Kill tracker
+    private int totalKillsNeeded = 10;              // Kills needed to progress rounds
+    public BarrelSpawner barrelSpawnerInstance;     // Barrel Spawner script
     
 
     private void Update()
     {
-        kills = KillCounter.kills;
-        Debug.Log(totalKillsNeeded);
+        kills = KillCounter.kills;              // Tracking player kills 
         
         if(kills == totalKillsNeeded)
         {
             zombiesPerRound += 5;
-            totalKillsNeeded += zombiesPerRound;
-            StartCoroutine(UpdateRound());
+            totalKillsNeeded += zombiesPerRound; // Update kills needed
+            StartCoroutine(UpdateRound());       // Start next round
 
         }
     }
@@ -44,16 +43,12 @@ public class TileMapEnemySpawner : MonoBehaviour
         InitializeSpawnPoints();
        
         roundNumberText = roundNumberGameObject.GetComponent<TextMeshProUGUI>();
-        if (roundNumberText == null)
-        {
-            Debug.LogError("Text component is not attached to roundNumberGameObject.");
-        }
-        UpdateRoundNumberUI();  // Update the UI to show the first round number
-        RoundOverGameObject.SetActive(false);
+       
+        UpdateRoundNumberUI();    // Update the UI to show the first round number
         StartCoroutine(RunRound());
     }
 
-    void InitializeSpawnPoints()
+    void InitializeSpawnPoints()   // Adding each tile in ZombieSpawner to available tiles
     {
         for (int n = spawnMap.cellBounds.xMin; n < spawnMap.cellBounds.xMax; n++)
         {
@@ -62,23 +57,22 @@ public class TileMapEnemySpawner : MonoBehaviour
                 Vector3Int localPlace = new Vector3Int(n, p, (int)spawnMap.transform.position.z);
                 if (spawnMap.HasTile(localPlace))
                 {
-                    availableTiles.Add(localPlace);
+                    availableTiles.Add(localPlace);   
                 }
             }
         }
     }
 
-    void UpdateRoundNumberUI()
+    void UpdateRoundNumberUI() // Updating Round Number Text
     {
         if (roundNumberText != null)
         {
-            Debug.Log("New round number: " + roundNumber);
-            roundNumberText.text = "Round " + roundNumber;
+            roundNumberText.text = "Round " + roundNumber; 
         }
           
     }
 
-    IEnumerator RunRound()
+    IEnumerator RunRound() // Spawning zombies at a random tile in available tiles at designated spawn rate
     {
         yield return new WaitForSeconds(initialSpawnDelay);
 

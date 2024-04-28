@@ -9,9 +9,9 @@ public class HealthBarFunction : MonoBehaviour
 
     private void Start()
     {
-        fillImage = fillImageTemp;
+        fillImage = fillImageTemp; //Assigning static variable
     }
-    public static void UpdateFillAmount(float currentHealth)
+    public static void UpdateFillAmount(float currentHealth) //Updating healthbar after player takes damage or heals
     {
         if (fillImage != null)
             fillImage.fillAmount = currentHealth / maxHealth;

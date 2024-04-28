@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class KillCounter : MonoBehaviour
 {
-    public GameObject killCount;  // Add this for round number display
+    public GameObject killCount;                    // KillCount Canvas
     private static TextMeshProUGUI killCountText;
     public static int kills;
 
@@ -16,19 +16,9 @@ public class KillCounter : MonoBehaviour
     {
         kills = 0;
         killCountText = killCount.GetComponent<TextMeshProUGUI>();
-        if (killCountText == null)
-        {
-            Debug.LogError("Text component is not attached to roundNumberGameObject.");
-        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public static void AddKill()
+    public static void AddKill() // Updating kills and killcount text
     {
         kills++;
         killCountText.text = kills.ToString();
