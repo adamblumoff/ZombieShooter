@@ -14,7 +14,7 @@ public class MovementAndAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void Move(Vector2 targetPosition)
+    public void Move(Vector2 targetPosition) //moves based on player location
     {
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
@@ -28,16 +28,12 @@ public class MovementAndAnimation : MonoBehaviour
         }
     }
 
-    public void StopMovement()
-    {
-
-    }
     private void Flip()
     {
         transform.Rotate(0f, 180f, 0f);
     }
 
-    private void HandleMovementAnimation(Vector2 direction)
+    private void HandleMovementAnimation(Vector2 direction) //sets animator based on horizontal and vertical velocity
     {
         bool isHorizontal = Mathf.Abs(direction.x) > Mathf.Abs(direction.y);
         bool isDown = direction.y < 0 && !isHorizontal;
