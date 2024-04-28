@@ -115,6 +115,9 @@ public class CharacterController2D : MonoBehaviour
 	public void TakeDamage (int damage)
 	{
 		health -= damage;
+		
+		HealthBarFunction.UpdateFillAmount(health);
+
 		StartCoroutine(TakesHit());
 		if (health <= 0)
 		{

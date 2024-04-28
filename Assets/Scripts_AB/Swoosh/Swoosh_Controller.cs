@@ -34,6 +34,10 @@ public class Down_Swoosh : MonoBehaviour
 
             Destroy(gameObject);
 		}
+		else if(hitInfo.gameObject.CompareTag("Terrain"))
+		{
+            Destroy(gameObject);
+        }
 
     }
 }

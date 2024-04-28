@@ -11,6 +11,7 @@ TagManager:
   - Barrel
   - GoldUpgrade
   - RedUpgrade
+  - Terrain
   layers:
   - Default
   - TransparentFX
@@ -21,9 +22,9 @@ TagManager:
   - Player
   - KnockedBackZombie
   - Zombie
-  - 
-  - 
-  - 
+  - NoCollision
+  - Border
+  - Terrain
   - 
   - 
   - 
