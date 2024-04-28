@@ -10,7 +10,6 @@ public class Down_Swoosh : MonoBehaviour
 	private GameObject swoosh;
 
 
-    // Use this for initialization
     private void Start()
     {
         swoosh = GetComponent<GameObject>();
@@ -23,7 +22,7 @@ public class Down_Swoosh : MonoBehaviour
 			Destroy(gameObject);
 		} 
 	}
-	void OnTriggerEnter2D (Collider2D hitInfo)
+	void OnTriggerEnter2D (Collider2D hitInfo) //does damage to zombies and knocks them back, destroys on background
 	{
 		if(hitInfo.gameObject.CompareTag("Zombie"))
 		{

@@ -22,14 +22,14 @@ public class BarrelSpawner : MonoBehaviour
         {
             Vector3Int spawnLocation = availableTiles[i];
             Vector3 spawnPosition = spawnMap.GetCellCenterWorld(spawnLocation);
-            spawnPositions.Add(spawnPosition);
+            spawnPositions.Add(spawnPosition); //adds available positions to spawn positions
 
             Instantiate(barrel, spawnPosition, Quaternion.identity);
         }
     }
 
 
-    void InitializeSpawnPoints()
+    void InitializeSpawnPoints() //adds all positions to available tiles
     {
         for (int n = spawnMap.cellBounds.xMin; n < spawnMap.cellBounds.xMax; n++)
         {
@@ -44,7 +44,7 @@ public class BarrelSpawner : MonoBehaviour
         }
     }
 
-    public void RespawnBarrels()
+    public void RespawnBarrels() //after round ends, respawn barrels at same position
     {
         for(int i = 0; i < availableTiles.Count; i++)
         {
@@ -67,12 +67,6 @@ public class BarrelSpawner : MonoBehaviour
                 }
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     
