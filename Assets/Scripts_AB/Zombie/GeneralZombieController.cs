@@ -13,9 +13,11 @@ public class GeneralZombieController : MonoBehaviour
 
     public AudioClip zombieGrunt;
     public AudioClip zombieHurt;
+    private KillCounter killCounter;
 
     void Start()
     {
+        killCounter = FindObjectOfType<KillCounter>();  
         movementAndAnimation = GetComponent<MovementAndAnimation>();
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         zombieDropUpgrades = GetComponent<ZombieDropUpgrades>();

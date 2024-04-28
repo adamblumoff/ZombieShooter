@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4408220995949096088}
   - component: {fileID: -8967354671254563864}
   - component: {fileID: 6771207179186548618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BigZombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7c8a459a29e3f4787120bc30871af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 16
+  strength: 5
   delay: 0.17
   OnBegin:
     m_PersistentCalls:

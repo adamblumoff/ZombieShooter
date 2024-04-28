@@ -8,7 +8,7 @@ public class KillCounter : MonoBehaviour
 {
     public GameObject killCount;  // Add this for round number display
     private static TextMeshProUGUI killCountText;
-    private static int kills;
+    public static int kills;
 
 
     // Start is called before the first frame update
