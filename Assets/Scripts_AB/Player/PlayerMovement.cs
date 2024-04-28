@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,12 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private SwooshSpawner swooshSpawner;
     private CharacterController2D character;
     public float runSpeed = 40f;
+    public AudioClip moveClip;
 
     float horizontalMove = 0f;
     float verticalMove = 0f;
     bool isHorizontal = false;
     bool isDown = true;
     public bool attacking = false;
+    private bool isSoundPlaying = false;
 
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Movement();
             AttackingAnimation();
+            MovementSound();
         }
         else
         {
@@ -51,11 +55,20 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
+    private void MovementSound()
+    {
+        if((verticalMove > 0 || horizontalMove > 0) && !isSoundPlaying)
+            {
+                SoundManager.PlayMovementSound(moveClip);
+                isSoundPlaying = true;
+                StartCoroutine(PlayMoveSound());
+            }
+    }
     private void Movement()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
+        
 
         if (horizontalMove > 0)
         {
@@ -64,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("Vertical", 0f);
         }
         else if (horizontalMove < 0)
-        {
+        {   
             isHorizontal = true;
             animator.SetFloat("Horizontal", Math.Abs(horizontalMove));
             animator.SetFloat("Vertical", 0f);
@@ -121,7 +134,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void UpgradeSpeed()
     {
-        this.runSpeed *= 1.1f;
+        if(this.runSpeed <=40)
+            this.runSpeed *= 1.1f;
     }
     public void SetRapidFire()
     {
@@ -130,8 +144,15 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator RapidFire()
     {
+        swooshSpawner.rapidFire = true;
         yield return new WaitForSeconds(10f);
         swooshSpawner.rapidFire = false;
     }
+    private IEnumerator PlayMoveSound()
+    {
+        yield return new WaitForSeconds(moveClip.length);
+        isSoundPlaying = false;
+    }
+
 
 }

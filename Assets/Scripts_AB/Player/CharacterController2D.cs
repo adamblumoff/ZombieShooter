@@ -13,6 +13,8 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform GroundCheck;							// A position marking where to check if the player is grounded.
 	public float health = 100f;
 	public int damage = 50;
+	public AudioClip hitClip;
+	public AudioClip dieClip;
 
 
 
@@ -123,6 +125,7 @@ public class CharacterController2D : MonoBehaviour
 	{
 		Rigidbody2D.velocity = stop;
 		this.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f, 0.5f);
+		SoundManager.PlayDieSound(dieClip);
 		playerAnimator.SetBool("isDead", true);
 	}
 	public void PlayerDie()
@@ -139,6 +142,7 @@ public class CharacterController2D : MonoBehaviour
 		if(!dead)
 		{
 			isHit = true;
+			SoundManager.PlayHitSound(hitClip);
 			this.GetComponent<BoxCollider2D>().enabled = false;
 			for(int i = 0; i< 5; i++)
 			{
