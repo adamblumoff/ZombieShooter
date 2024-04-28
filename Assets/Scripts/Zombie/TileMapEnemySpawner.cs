@@ -28,9 +28,13 @@ public class TileMapEnemySpawner : MonoBehaviour
     private void Update()
     {
         kills = KillCounter.kills;
+        Debug.Log(totalKillsNeeded);
+        
         if(kills == totalKillsNeeded)
         {
-            UpdateRound();
+            zombiesPerRound += 10;
+            totalKillsNeeded += zombiesPerRound;
+            StartCoroutine(UpdateRound());
 
         }
     }
@@ -109,8 +113,6 @@ public class TileMapEnemySpawner : MonoBehaviour
 
         // Prepare for the next round
         spawnRate *= spawnAcceleration;
-        zombiesPerRound += 10;
-        totalKillsNeeded += zombiesPerRound;
         roundNumber++;
         Debug.Log("round number incremented");
         UpdateRoundNumberUI(); // Update the round number for the new round
