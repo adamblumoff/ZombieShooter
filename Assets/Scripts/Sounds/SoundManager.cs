@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
     // Reference to the AudioSource component
     private static AudioSource audioSource;
+
 
     // Awake is called when the script instance is being loaded
     void Awake()
@@ -46,6 +48,61 @@ public class SoundManager : MonoBehaviour
         if (explosionClip != null)
         {
             audioSource.PlayOneShot(explosionClip);
+        }
+        else
+        {
+            Debug.LogWarning("AudioClip is null");
+        }
+    }
+    public static void PlayMovementSound(AudioClip moveClip)
+    {
+        if (moveClip != null)
+        {
+            audioSource.PlayOneShot(moveClip);
+        }
+        else
+        {
+            Debug.LogWarning("AudioClip is null");
+        }
+    }
+    public static void PlayAttackSound(AudioClip attackClip)
+    {
+        if (attackClip != null)
+        {
+            audioSource.PlayOneShot(attackClip);
+        }
+        else
+        {
+            Debug.LogWarning("AudioClip is null");
+        }
+    }
+    public static void PlayHitSound(AudioClip hitClip)
+    {
+        if (hitClip != null)
+        {
+            audioSource.PlayOneShot(hitClip);
+        }
+        else
+        {
+            Debug.LogWarning("AudioClip is null");
+        }
+    }
+    public static void PlayDieSound(AudioClip dieClip)
+    {
+        if (dieClip != null)
+        {
+            audioSource.PlayOneShot(dieClip);
+        }
+        else
+        {
+            Debug.LogWarning("AudioClip is null");
+        }
+    }
+    public static void PlayUpgradeSound(AudioClip dieClip)
+    {
+        if (dieClip != null)
+        {
+            audioSource.PlayOneShot(dieClip);
         }
         else
         {
