@@ -133,12 +133,12 @@ public class CharacterController2D : MonoBehaviour
 	}
 	public void PlayerDie()
 	{
-		string currentSceneName = SceneManager.GetActiveScene().name;
-		SceneManager.LoadScene(currentSceneName);
+		SceneManager.LoadScene("Menu");
 	}
 	public void RestoreHealth()
 	{
 		this.health = 100f;
+		HealthBarFunction.UpdateFillAmount(this.health);
 	}
 	private IEnumerator TakesHit()
 	{
