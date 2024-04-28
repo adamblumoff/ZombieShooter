@@ -6,6 +6,7 @@ public class Down_Swoosh : MonoBehaviour
 {
 	public int damage = 100;
 	public Rigidbody2D rb;
+	public AudioClip rockClip;
 	private float timer;
 	private GameObject swoosh;
 
@@ -35,11 +36,13 @@ public class Down_Swoosh : MonoBehaviour
             Destroy(gameObject);
 		}
 		else if(hitInfo.gameObject.CompareTag("Terrain"))
-		{
+		{	
+			SoundManager.PlayRockSound(rockClip);
             Destroy(gameObject);
         }
         else if (hitInfo.gameObject.CompareTag("Border"))
         {
+			SoundManager.PlayRockSound(rockClip);
             Destroy(gameObject);
         }
 

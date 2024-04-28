@@ -109,4 +109,16 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning("AudioClip is null");
         }
     }
+    public static void PlayRockSound(AudioClip rockClip)
+    {
+        if (rockClip != null)
+        {
+            audioSource.PlayOneShot(rockClip);
+        }
+        else
+        {
+            Debug.LogWarning("AudioClip is null");
+        }
+    }
+
 }
