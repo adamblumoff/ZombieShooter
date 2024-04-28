@@ -5,9 +5,9 @@ public class GeneralZombieController : MonoBehaviour
 {
     public float health;
     public int damage = 100;
-    private MovementAndAnimation movementAndAnimation;
-    private ZombieDropUpgrades zombieDropUpgrades;
-    private Transform targetTransform; // Can be set to player's transform or another target
+    private MovementAndAnimation movementAndAnimation;  
+    private ZombieDropUpgrades zombieDropUpgrades;      // Droppable upgrades    
+    private Transform targetTransform;                  // Player's transform 
     private bool dead = false;
     private int gruntDelay = 3;
 
@@ -20,33 +20,32 @@ public class GeneralZombieController : MonoBehaviour
     void Start()
     {
         zombie = this.gameObject;
-        killCounter = FindObjectOfType<KillCounter>();  
+        killCounter = FindObjectOfType<KillCounter>();                          // KillCounter gameobject
         movementAndAnimation = GetComponent<MovementAndAnimation>();
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         zombieDropUpgrades = GetComponent<ZombieDropUpgrades>();
 
-        StartCoroutine(ZombieGrunt(zombieGrunt));
+        StartCoroutine(ZombieGrunt(zombieGrunt));                               // ZombieGrunt interval
     }
 
     void Update()
     {
         if (!dead)
         {
-            movementAndAnimation.Move(targetTransform.position);
+            movementAndAnimation.Move(targetTransform.position);                // PlayerTracking
         }
     }
 
-    void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    void OnCollisionEnter2D(UnityEngine.Collision2D collision) // Checks to see if the zombie collides with player, and deals player damage
     {
         if (collision.gameObject.CompareTag("Player") && dead == false)
         {
             CharacterController2D player = collision.gameObject.GetComponent<CharacterController2D>();
             player.TakeDamage(damage);
-            Debug.Log("Damage taken");
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage)                      // Zombie Damage function
     {
         movementAndAnimation.TriggerHitAnimation();
         health -= damage;
@@ -62,20 +61,17 @@ public class GeneralZombieController : MonoBehaviour
     {
         zombie.layer = LayerMask.NameToLayer("ZombieDead");
         movementAndAnimation.TriggerDeathAnimation();
-        // Additional death logic here
-        
     }
 
-    void EndDeath()
+    void EndDeath()                     // Kill zombie and drop upgrade
     {
-        Debug.Log("destroy");
         zombieDropUpgrades.RandomDrop();
         KillCounter.AddKill();
         Destroy(gameObject);
     }
 
 
-    IEnumerator ZombieGrunt(AudioClip zombieGruntClip)
+    IEnumerator ZombieGrunt(AudioClip zombieGruntClip) // Zombie grunting coroutine
     {
         while (true)
         {
