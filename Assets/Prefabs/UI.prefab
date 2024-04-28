@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4937387347026415648}
   - component: {fileID: 6928451873682867476}
   - component: {fileID: 3086551697738080896}
+  - component: {fileID: 2326508081507161633}
   m_Layer: 5
   m_Name: Round Number
   m_TagString: Untagged
@@ -134,6 +135,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2326508081507161633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077091881457143427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3da0647c104c49c6b269f4648002790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRound: 1
+  zombiesKilledThisRound: 0
+  killsNeededToAdvanceRound: 5
+  killIncreaseEachRound: 5
+  roundText: {fileID: 0}
 --- !u!1 &1671793407409756816
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +530,7 @@ GameObject:
   - component: {fileID: 6229721926356242473}
   - component: {fileID: 557439139546614620}
   - component: {fileID: 6758409458561031760}
+  - component: {fileID: 8514511811198296557}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -635,3 +654,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8514511811198296557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418032757393023082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e328eac4b49418f907cccf4f22ba26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterText: {fileID: 0}

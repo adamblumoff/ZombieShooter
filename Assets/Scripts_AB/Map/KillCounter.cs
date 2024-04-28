@@ -1,32 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class KillCounter : MonoBehaviour
 {
-    public Text counterText;
-    int kills;
+    [SerializeField]
+    private Text counterText; // Reference to the UI Text component that displays the kill count
+    private int kills = 0;    // Initialize the kill count to zero
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateKillDisplay();  // Update the display at the start to show initial kills, if any
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateKillDisplay()
     {
-        
-    }
-
-    private void ShowKills()
-    {
-        counterText.text = kills.ToString();
+        counterText.text = "Kills: " + kills.ToString();
     }
 
     public void AddKill()
     {
-        kills++;
+        kills++;              // Increment the kill count by one
+        UpdateKillDisplay();  // Update the UI to reflect the new kill count
     }
 }
