@@ -828,6 +828,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI - Rex
       objectReference: {fileID: 0}
+    - target: {fileID: 3877128626068855343, guid: 9fb21833163cacf43a71f7d2427ce01b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877128626068855343, guid: 9fb21833163cacf43a71f7d2427ce01b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311408294929040185, guid: 9fb21833163cacf43a71f7d2427ce01b, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8746805315152927288, guid: 9fb21833163cacf43a71f7d2427ce01b, type: 3}
       propertyPath: m_Pivot.x
       value: 0

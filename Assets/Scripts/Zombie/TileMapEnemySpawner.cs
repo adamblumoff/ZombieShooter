@@ -10,8 +10,8 @@ public class TileMapEnemySpawner : MonoBehaviour
     public Tilemap spawnMap;
     public List<GameObject> zombies;
     public float initialSpawnDelay = 2.0f;
-    public float spawnRate = 5.0f;
-    public float spawnAcceleration = 0.9f;
+    public float spawnRate = 2.5f;
+    public float spawnAcceleration = 0.8f;
     public int zombiesPerRound = 10;
     public GameObject RoundOverGameObject;  // Round over message
     public GameObject roundNumberGameObject;  // Add this for round number display
@@ -20,11 +20,23 @@ public class TileMapEnemySpawner : MonoBehaviour
     private int roundNumber = 1;
     private TextMeshProUGUI roundNumberText;
 
+    private int kills;
+    private int totalKillsNeeded = 10;
     public BarrelSpawner barrelSpawnerInstance;
+    
 
+    private void Update()
+    {
+        kills = KillCounter.kills;
+        if(kills == totalKillsNeeded)
+        {
+            UpdateRound();
+
+        }
+    }
     void Start()
     {
-        
+       
         InitializeSpawnPoints();
        
         roundNumberText = roundNumberGameObject.GetComponent<TextMeshProUGUI>();
@@ -83,19 +95,26 @@ public class TileMapEnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnRate);
         }
 
+       
+    }
+
+    private IEnumerator UpdateRound()
+    {
         // Round over logic
         RoundOverGameObject.SetActive(true);
         UpdateRoundNumberUI(); // Update the round number just before showing the round over message
-        yield return new WaitForSeconds(3); // Display the round over message for 3 seconds
+        yield return new WaitForSeconds(3);
         RoundOverGameObject.SetActive(false);
         barrelSpawnerInstance.RespawnBarrels();
 
         // Prepare for the next round
         spawnRate *= spawnAcceleration;
-        zombiesPerRound += 5;
+        zombiesPerRound += 10;
+        totalKillsNeeded += zombiesPerRound;
         roundNumber++;
         Debug.Log("round number incremented");
         UpdateRoundNumberUI(); // Update the round number for the new round
+
         StartCoroutine(RunRound()); // Start the next round
     }
 }
