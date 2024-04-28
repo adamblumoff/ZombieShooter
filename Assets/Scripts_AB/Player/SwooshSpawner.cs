@@ -10,6 +10,7 @@ public class SwooshSpawner : MonoBehaviour
     public GameObject DownSwooshPrefab;
     public Transform SideSpawner;
     public GameObject SideSwooshPrefab;
+    public AudioClip attackClip;
     private Animator animator;
     private PlayerMovement playerMovement;
     public float speed = 5f;
@@ -53,6 +54,7 @@ public class SwooshSpawner : MonoBehaviour
     {
         if (animator.GetBool("isAttacking"))
         {
+            SoundManager.PlayAttackSound(attackClip);
             if (animator.GetBool("isHorizontal"))
             {
                 Swoosh(SideSpawner, SideSwooshPrefab);
@@ -74,21 +76,19 @@ public class SwooshSpawner : MonoBehaviour
     }
     public void IncreaseSpeed()
     {
-        speed *= 1.1f;
-    }
-    private IEnumerator RapidFire()
-    {
-        yield return new WaitForSeconds(10f);
-        rapidFire = false;
+        if(speed <=15f)
+            speed *= 1.1f;
     }
 
     public void SetRapidFire()
     {
-        rapidFire = !rapidFire;
+        rapidFire = true;
     }
     private IEnumerator RapidFireAnimation()
     {
-        this.GetComponent<BoxCollider2D>().enabled = false;
+        int noCollsionLayer = LayerMask.NameToLayer("NoCollision");
+        int defaultLayer = LayerMask.NameToLayer("Default");
+        gameObject.layer = noCollsionLayer;
         for (int i = 0; i < 25; i++)
         {
             this.GetComponent<SpriteRenderer>().color = new Color(255f, 215f, 0f, 0.75f);
@@ -97,7 +97,7 @@ public class SwooshSpawner : MonoBehaviour
             yield return new WaitForSeconds(.2f);
         }
         this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        this.GetComponent<BoxCollider2D>().enabled = true;
+        gameObject.layer = defaultLayer;
     }
     public void SetRapidFireAnimation()
     {

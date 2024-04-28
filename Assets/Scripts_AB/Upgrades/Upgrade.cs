@@ -10,6 +10,7 @@ public class Upgrade : MonoBehaviour
     private SwooshSpawner swooshSpawner;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D collider;
+    public AudioClip upgradeClip;
     void Start()
     {
         StartCoroutine(DestroyUpgrade());
@@ -23,6 +24,10 @@ public class Upgrade : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SoundManager.PlayUpgradeSound(upgradeClip);
+        }
         // Check if the collision is with the player
         if (collision.gameObject.CompareTag("Player") && gameObject.CompareTag("BlueUpgrade"))
         {
