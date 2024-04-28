@@ -15,8 +15,11 @@ public class GeneralZombieController : MonoBehaviour
     public AudioClip zombieHurt;
     private KillCounter killCounter;
 
+    public GameObject zombie;
+
     void Start()
     {
+        zombie = this.gameObject;
         killCounter = FindObjectOfType<KillCounter>();  
         movementAndAnimation = GetComponent<MovementAndAnimation>();
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -35,7 +38,7 @@ public class GeneralZombieController : MonoBehaviour
 
     void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && dead == false)
         {
             CharacterController2D player = collision.gameObject.GetComponent<CharacterController2D>();
             player.TakeDamage(damage);
@@ -57,6 +60,7 @@ public class GeneralZombieController : MonoBehaviour
 
     void Die()
     {
+        zombie.layer = LayerMask.NameToLayer("ZombieDead");
         movementAndAnimation.TriggerDeathAnimation();
         // Additional death logic here
         

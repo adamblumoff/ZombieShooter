@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: ea4ac0ecbfe7a64489e090aa4f97a994
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - screenDamageMat: {fileID: 2100000, guid: ea9addfc9f1a7a94baea056174c99beb, type: 2}
+  - impulseSource: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

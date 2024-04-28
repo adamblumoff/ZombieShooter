@@ -16,5 +16,4 @@ public class HealthBarFunction : MonoBehaviour
         if (fillImage != null)
             fillImage.fillAmount = currentHealth / maxHealth;
     }
-
 }

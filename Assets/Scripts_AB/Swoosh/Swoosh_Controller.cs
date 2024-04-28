@@ -38,6 +38,10 @@ public class Down_Swoosh : MonoBehaviour
 		{
             Destroy(gameObject);
         }
+        else if (hitInfo.gameObject.CompareTag("Border"))
+        {
+            Destroy(gameObject);
+        }
 
     }
 }

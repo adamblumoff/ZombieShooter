@@ -6,6 +6,7 @@ public class MovementAndAnimation : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private bool right = true;
+   
 
     void Awake()
     {
@@ -57,7 +58,6 @@ public class MovementAndAnimation : MonoBehaviour
 
     public void TriggerDeathAnimation()
     {
-        rb.velocity = Vector2.zero;
         animator.SetBool("IsDead", true);
     }
 }
