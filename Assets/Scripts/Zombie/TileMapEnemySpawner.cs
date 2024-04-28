@@ -10,8 +10,8 @@ public class TileMapEnemySpawner : MonoBehaviour
     public Tilemap spawnMap;
     public List<GameObject> zombies;
     public float initialSpawnDelay = 2.0f;
-    public float spawnRate = 2.5f;
-    public float spawnAcceleration = 0.8f;
+    public float spawnRate = 2f;
+    public float spawnAcceleration = 0.9f;
     public int zombiesPerRound = 10;
     public GameObject RoundOverGameObject;  // Round over message
     public GameObject roundNumberGameObject;  // Add this for round number display
@@ -32,7 +32,7 @@ public class TileMapEnemySpawner : MonoBehaviour
         
         if(kills == totalKillsNeeded)
         {
-            zombiesPerRound += 10;
+            zombiesPerRound += 5;
             totalKillsNeeded += zombiesPerRound;
             StartCoroutine(UpdateRound());
 
