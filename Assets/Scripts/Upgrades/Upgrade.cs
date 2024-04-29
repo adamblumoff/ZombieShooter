@@ -13,7 +13,7 @@ public class Upgrade : MonoBehaviour
     public AudioClip upgradeClip;
     void Start()
     {
-        StartCoroutine(DestroyUpgrade());
+        StartCoroutine(DestroyUpgrade()); 
         text.SetActive(false);
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
@@ -22,7 +22,7 @@ public class Upgrade : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision) //depending on upgrade, does different tasks
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -56,17 +56,7 @@ public class Upgrade : MonoBehaviour
             StartCoroutine(GoldShowText());
         }
     }
-    private IEnumerator GreenShowText()
-    {
-        text.SetActive(true);
-        spriteRenderer.enabled = false;
-        collider.enabled = false;
-        yield return new WaitForSeconds(10f);
-        text.SetActive(false);
-        Destroy(gameObject);
-
-    }
-    private IEnumerator BlueShowText()
+    private IEnumerator GreenShowText() //sets ui for upgrade
     {
         text.SetActive(true);
         spriteRenderer.enabled = false;
@@ -76,7 +66,17 @@ public class Upgrade : MonoBehaviour
         Destroy(gameObject);
 
     }
-    private IEnumerator RedShowText()
+    private IEnumerator BlueShowText() //sets ui for upgrade
+    {
+        text.SetActive(true);
+        spriteRenderer.enabled = false;
+        collider.enabled = false;
+        yield return new WaitForSeconds(5f);
+        text.SetActive(false);
+        Destroy(gameObject);
+
+    }
+    private IEnumerator RedShowText() //sets ui for upgrade
     {
         text.SetActive(true);
         spriteRenderer.enabled = false;
@@ -86,7 +86,7 @@ public class Upgrade : MonoBehaviour
         Destroy(gameObject);
 
     }
-    private IEnumerator GoldShowText()
+    private IEnumerator GoldShowText() //sets ui for upgrade
     {
         text.SetActive(true);
         spriteRenderer.enabled = false;
@@ -96,7 +96,7 @@ public class Upgrade : MonoBehaviour
         Destroy(gameObject);
 
     }
-    IEnumerator DestroyUpgrade()
+    IEnumerator DestroyUpgrade() //destroys upgrade 10s after instantiation
     {
         yield return new WaitForSeconds(7f);
         this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, .5f);

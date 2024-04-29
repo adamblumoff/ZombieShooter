@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        if (!animator.GetBool("isDead") && !animator.GetBool("isAttacking") || swooshSpawner.rapidFire)
+        if (!animator.GetBool("isDead") && !animator.GetBool("isAttacking") || swooshSpawner.rapidFire) // moves and attacks when not already attacking or dead, also sets rapid fire
         {
             Movement();
             AttackingAnimation();
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void MovementSound()
+    private void MovementSound() //sets movement sound
     {
         if((verticalMove > 0 || horizontalMove > 0) && !isSoundPlaying)
             {
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(PlayMoveSound());
             }
     }
-    private void Movement()
+    private void Movement() //conditions for movement and sets animator
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
         MovementAnimation();
 
     }
-    private void AttackingAnimation()
+    private void AttackingAnimation() //sets rapid fire and attacking animations
     {
         if (Input.GetButtonDown("Fire1") && !character.isHit || swooshSpawner.rapidFire)
         {
@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    private void MovementAnimation()
+    private void MovementAnimation() //sets movement in animator
     {
         if (isHorizontal)
             animator.SetBool("isHorizontal", true);
@@ -126,13 +126,13 @@ public class PlayerMovement : MonoBehaviour
         else
             animator.SetBool("isDown", false);
     }
-    public void StopAttacking()
+    public void StopAttacking() //gets called in animator as an animation event
     {
         attacking = false;
         animator.SetBool("isAttacking", false);
     }
 
-    public void UpgradeSpeed()
+    public void UpgradeSpeed() //upgrades speed and caps at 40
     {
         if(this.runSpeed <=40)
             this.runSpeed *= 1.1f;
@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
         if (swooshSpawner.rapidFire)
             StartCoroutine(RapidFire());
     }
-    private IEnumerator RapidFire()
+    private IEnumerator RapidFire() //sets rapid fire for swoosh spawner
     {
         swooshSpawner.rapidFire = true;
         yield return new WaitForSeconds(10f);

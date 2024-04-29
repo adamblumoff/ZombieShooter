@@ -23,7 +23,7 @@ public class SwooshSpawner : MonoBehaviour
         playerMovement = FindObjectOfType<PlayerMovement>();
     }
     // Update is called once per frame
-    public void Swoosh(Transform spawner, GameObject prefab)
+    public void Swoosh(Transform spawner, GameObject prefab) // generates swoosh at specific spawner tied to the player prefab
     {
         if (!animator.GetBool("isDead"))
         {
@@ -50,7 +50,7 @@ public class SwooshSpawner : MonoBehaviour
         }
 
     }
-    public void SwooshAttack()
+    public void SwooshAttack() // spawns specific swooshes depending on booleans in the animator
     {
         if (animator.GetBool("isAttacking"))
         {
@@ -74,7 +74,7 @@ public class SwooshSpawner : MonoBehaviour
 
         }
     }
-    public void IncreaseSpeed()
+    public void IncreaseSpeed() //increases speed and caps at 15
     {
         if(speed <=15f)
             speed *= 1.1f;
@@ -84,7 +84,7 @@ public class SwooshSpawner : MonoBehaviour
     {
         rapidFire = true;
     }
-    private IEnumerator RapidFireAnimation()
+    private IEnumerator RapidFireAnimation() //sets rapid fire animation and turns to another layer so it doesn't collide with upgrades or zombies
     {
         int noCollsionLayer = LayerMask.NameToLayer("NoCollision");
         int defaultLayer = LayerMask.NameToLayer("Default");

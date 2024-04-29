@@ -16,7 +16,6 @@ public class Barrel_Hitscan : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("hit");
         isHit = true;
         animator.SetBool("IsHit", isHit);
     }
