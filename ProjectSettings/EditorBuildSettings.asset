@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 51be53754b16775448ed691bd8b56021
   - enabled: 1
-    path: Assets/Scenes/AdamTester.unity
-    guid: 965b5aa1cde29924a87b910042541d01
-  - enabled: 1
     path: Assets/Scenes/Controls.unity
     guid: 9f750f21d018b8e448c338d9e6ded234
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: cb2b9782573ad9c468cf314b0889b7d0
   m_configObjects: {}

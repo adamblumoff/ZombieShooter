@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     private bool paused = false; 
     public void TogglePause()
     {
+        Debug.Log("Toggle");
         // This will toggle the active state of the pause menu canvas
         PauseMenuPanel.SetActive(!PauseMenuPanel.activeSelf);
 
