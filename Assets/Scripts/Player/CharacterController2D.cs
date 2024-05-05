@@ -18,6 +18,7 @@ public class CharacterController2D : MonoBehaviour
 	public int damage = 50;
 	public AudioClip hitClip;
 	public AudioClip dieClip;
+	public GameObject redTint;
 
 
 
@@ -53,6 +54,7 @@ public class CharacterController2D : MonoBehaviour
 
 		playerAnimator = GetComponent<Animator>();
 		this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+		redTint.SetActive(false);
 	}
 
 	void Update()
@@ -148,6 +150,7 @@ public class CharacterController2D : MonoBehaviour
 	{
 		if(!dead)
 		{
+			redTint.SetActive(true);
 			isHit = true;
 			SoundManager.PlayHitSound(hitClip);
 			this.GetComponent<BoxCollider2D>().enabled = false;
@@ -161,6 +164,7 @@ public class CharacterController2D : MonoBehaviour
 			isHit = false;
 			this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 			this.GetComponent<BoxCollider2D>().enabled = true;
+			redTint.SetActive(false);
 		}
 
 	}
