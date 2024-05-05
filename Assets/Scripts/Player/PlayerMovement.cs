@@ -59,9 +59,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if((verticalMove > 0 || horizontalMove > 0) && !isSoundPlaying)
             {
-                SoundManager.PlayMovementSound(moveClip);
+                //SoundManager.PlayMovementSound(moveClip);
                 isSoundPlaying = true;
-                StartCoroutine(PlayMoveSound());
+                //StartCoroutine(PlayMoveSound());
             }
     }
     private void Movement() //conditions for movement and sets animator

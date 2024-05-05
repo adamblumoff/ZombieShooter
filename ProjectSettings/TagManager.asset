@@ -13,6 +13,7 @@ TagManager:
   - RedUpgrade
   - Terrain
   - Border
+  - SilverUpgrade
   layers:
   - Default
   - TransparentFX
