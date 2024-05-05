@@ -76,7 +76,7 @@ public class SwooshSpawner : MonoBehaviour
     }
     public void IncreaseSpeed() //increases speed and caps at 15
     {
-        if(speed <=15f)
+        if(speed <= 15f)
             speed *= 1.1f;
     }
 
@@ -106,4 +106,5 @@ public class SwooshSpawner : MonoBehaviour
             StartCoroutine(RapidFireAnimation());
         }
     }
+    
 }

@@ -120,5 +120,16 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning("AudioClip is null");
         }
     }
+    public static void PlayEarthQuakeSound(AudioClip earthquakeClip)
+    {
+        if (earthquakeClip != null)
+        {
+            audioSource.PlayOneShot(earthquakeClip);
+        }
+        else
+        {
+            Debug.LogWarning("AudioClip is null");
+        }
+    }
 
 }
