@@ -1,3 +1,3 @@
-# ZombieShooter
+#Undead Mayhem
  
-run ZombieShooter.exe to experience the final build that was submitted in our class, but the UI still needs a lot more polishing. 
+download the zip file, extract the files, and run ZombieShooter.exe to play the game!
