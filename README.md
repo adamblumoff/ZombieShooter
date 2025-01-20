@@ -1,3 +1,3 @@
 # ZombieShooter
  
-final project for my game development class, no build
+run ZombieShooter.exe to experience the final build that was submitted in our class, but the UI still needs a lot more polishing. 
